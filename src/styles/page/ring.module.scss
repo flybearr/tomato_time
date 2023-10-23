@@ -1,0 +1,147 @@
+.ringPage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: #f2f2f2;
+  position: relative;
+}
+.musicPlayer {
+  position: absolute;
+  left: 2rem;
+  bottom: -4rem;
+  z-index: 1;
+  i {
+    font-size: 25rem;
+    color: #eaeaea;
+  }
+}
+.title {
+  width: 500px;
+  height: 200px;
+  color: #919191;
+  font-family: Roboto, Bold;
+  font-weight: Bold;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    font-size: 2.5rem;
+    color: #919191;
+    margin-right: 1rem;
+  }
+}
+
+.ringListWrap {
+  align-self: flex-end;
+  width: 100%;
+  height: 100%;
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  gap: 3rem;
+  .workArea {
+    width: 50%;
+  }
+  .breakArea {
+    width: 50%;
+  }
+}
+
+.radioGroup {
+  width: 30%;
+  height: 40px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+
+  .radioInput {
+    visibility: hidden;
+  }
+  .radioLabel {
+    font-size: 1rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    padding-left: 2rem;
+  }
+  .btn {
+    height: 1.5rem;
+    width: 1.5rem;
+    border: 2px solid #ffb199;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .btn::after {
+    /* 中間點點 */
+    content: "";
+    display: block;
+    height: 0.8rem;
+    width: 0.8rem;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 0.4rem);
+    left: calc(50% - 0.4rem);
+    background-color: #ffb199;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .radioInput:checked ~ .radioLabel .btn::after {
+    /* 選中radio時 才顯示中間點點 */
+    opacity: 1;
+  }
+}
+
+.listTitle {
+  font-family: Roboto, Bold;
+  background: #8e8e8e;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.everyList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  //   padding: 8px;
+  margin: 5px 0px;
+  border-radius: 5px;
+  background: white;
+  font-family: Roboto, Regular;
+  color: #919191;
+  .circle {
+    width: 20px;
+    height: 20px;
+    border: 2px #ffb199 solid;
+    border-radius: 50%;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  span {
+    color: #ffb199;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  span:hover {
+    color: black;
+    cursor: pointer;
+  }
+
+  .play {
+    margin-right: 20px;
+    span {
+      font-size: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.allPage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.layoutBg {
+  width: 80px;
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.topArea {
+  width: 100%;
+  height: 50%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  span {
+    font-size: 2rem;
+    color: #d8d8d8;
+  }
+  span:hover {
+    color: #ffb199;
+    cursor: pointer;
+  }
+}
+
+.bottomArea {
+  width: 100%;
+  height: 50%;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  p {
+    writing-mode: vertical-lr;
+    color: #ffb199;
+    font-size: 1.5rem;
+  }
+}

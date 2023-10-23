@@ -1,0 +1,46 @@
+.circleProgressBar {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    font-size: 7rem;
+    color: white;
+  }
+  .min {
+    top: 5rem;
+    position: absolute;
+  }
+  .sec {
+    top: 12rem;
+    position: absolute;
+  }
+  svg {
+    width: 400px;
+    height: 400px;
+    transform: rotate(-90deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.circleBackground {
+  fill: none;
+  stroke: white;
+  stroke-width: 7;
+}
+.circleBackgroundSmall {
+  fill: none;
+  stroke: white;
+  stroke-width: 3;
+}
+.circleProgress {
+  fill: none;
+  stroke: white;
+  stroke-width: 18;
+}

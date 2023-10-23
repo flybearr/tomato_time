@@ -1,0 +1,189 @@
+.listPage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: #f2f2f2;
+}
+.wrap {
+  width: 100%;
+  display: flex;
+}
+.left {
+  padding: 3rem 3rem 3rem 10rem;
+  width: 75%;
+  min-width: 740px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.ListBanner {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  margin-bottom: 5rem;
+  gap: 1.25rem;
+  span {
+    color: #919191;
+  }
+  p {
+    font-family: Roboto, Bold;
+    color: #919191;
+    font-weight: 700;
+  }
+}
+.inputArea {
+  width: 100%;
+
+  position: relative;
+  .addMisson {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;
+    font: italic normal normal 22px/50px Muli;
+  }
+  .timeIconGroup {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 1rem;
+    span {
+      color: #919191;
+    }
+  }
+}
+
+::placeholder {
+  color: #d8d8d8;
+}
+::-webkit-input-placeholder {
+  color: #d8d8d8;
+}
+.todolistWrap {
+  align-self: flex-end;
+  width: 100%;
+  display: flex;
+  gap: 3rem;
+
+  .todoArea {
+    width: 50%;
+    min-width: 240px;
+  }
+  .doneArea {
+    width: 50%;
+    min-width: 240px;
+  }
+}
+
+.doneText {
+  text-decoration: line-through;
+}
+
+.listTitle {
+  font-family: Roboto, Bold;
+  background: #8e8e8e;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.everyList {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  margin: 5px 0px;
+  border-radius: 5px;
+  background: white;
+  font-family: Roboto, Regular;
+  color: #919191;
+  .circle {
+    width: 20px;
+    height: 20px;
+    border: 2px #ffb199 solid;
+    border-radius: 50%;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      color: #ffb199;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+  }
+
+  .control {
+    span {
+      color: #ffb199;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    span:hover {
+      color: black;
+      cursor: pointer;
+    }
+  }
+
+  .descriptionWrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .tail {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      span {
+        color: #919191;
+        cursor: default;
+      }
+    }
+  }
+}
+
+.right {
+  width: 25%;
+  height: 100%;
+  padding: 3rem 4rem;
+  display: flex;
+}
+
+.timeBox {
+  width: 100%;
+  min-width: 140px;
+  height: 70px;
+  border-radius: 5px;
+  color: white;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  p {
+    font-family: Roboto, black;
+    font-size: clamp(0.75rem, calc(100cqw / 40), 2rem);
+    font-weight: 700;
+  }
+  span {
+    font-size: 3rem;
+  }
+  span:hover {
+    color: black;
+    cursor: pointer;
+  }
+}
+
+.work {
+  background: #ff8b94;
+}
+.break {
+  background: #c1dfc4;
+}

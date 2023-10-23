@@ -1,0 +1,130 @@
+.analyticsPage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: #f2f2f2;
+  position: relative;
+}
+.analyticBG {
+  position: absolute;
+  left: 2rem;
+  bottom: -4rem;
+  z-index: 1;
+  span {
+    font-size: 25rem;
+    color: #eaeaea;
+  }
+}
+.title {
+  width: 30%;
+  height: 200px;
+  color: #919191;
+  font-family: Roboto, Bold;
+  font-weight: Bold;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    font-size: 2.5rem;
+    color: #919191;
+    margin-right: 1rem;
+  }
+}
+
+.analyticsListWrap {
+  //   align-self: flex-end;
+  width: 70%;
+  height: 100%;
+  //   padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  gap: 3rem;
+  .workArea {
+    width: 50%;
+  }
+  .breakArea {
+    width: 50%;
+  }
+}
+
+.listTitle {
+  min-width: 400px;
+  font-family: Roboto, Bold;
+  background: #8e8e8e;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  span {
+    cursor: pointer;
+  }
+}
+
+.detailList {
+  width: 100%;
+  min-width: 400px;
+  height: 100px;
+  border-radius: 5px;
+  background: white;
+  display: flex;
+  align-items: center;
+
+  .todayTimes {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .line {
+    width: 1px;
+    height: 30px;
+    background: #919191;
+  }
+  .weekTimes {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .doneNumber {
+    font-family: Roboto, Bold;
+    font-size: 4rem;
+    font-weight: Bold;
+    color: #ffb199;
+  }
+  .doneTitle {
+    font-family: Roboto, Medium;
+    font-size: 1rem;
+    font-weight: Bold;
+    color: #919191;
+  }
+}
+
+.chartList {
+  width: 100%;
+  min-width: 400px;
+  height: 350px;
+  border-radius: 5px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  //   align-items: center;
+  // svg {
+  //   transform: rotate(0deg);
+  // }
+}
