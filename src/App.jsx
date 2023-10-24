@@ -7,7 +7,7 @@ import { TimeContextProvider } from "./context/TimeContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/tomato_time">
       <TimeContextProvider>
         <Routes>
           <Route path="/" element={<Layout />}>

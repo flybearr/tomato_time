@@ -3,6 +3,8 @@ import styles from "../styles/page/ring.module.scss";
 
 export default function RingTone() {
   const {
+    workRef,
+    breakRef,
     ringArray,
     ringArray2,
     selectWorkRing,
@@ -10,6 +12,17 @@ export default function RingTone() {
     selectBreakRing,
     setSelectBreakRing,
   } = useTimeContext();
+  const playRing = (type, src) => () => {
+    switch (type) {
+      case "break":
+        breakRef.current.src = src;
+        breakRef.current.play();
+        break;
+      case "work":
+        workRef.current.src = src;
+        workRef.current.play();
+    }
+  };
   return (
     <div className={styles.ringPage}>
       <div className={styles.musicPlayer}>
@@ -42,7 +55,10 @@ export default function RingTone() {
                     <p> {list.name}</p>
                   </label>
                 </div>
-                <div className={styles.play}>
+                <div
+                  className={styles.play}
+                  onClick={playRing("work", list.src)}
+                >
                   <span className="material-symbols-outlined">play_circle</span>
                 </div>
               </div>
@@ -71,7 +87,10 @@ export default function RingTone() {
                     <p> {list.name}</p>
                   </label>
                 </div>
-                <div className={styles.play}>
+                <div
+                  className={styles.play}
+                  onClick={playRing("break", list.src)}
+                >
                   <span className="material-symbols-outlined">play_circle</span>
                 </div>
               </div>

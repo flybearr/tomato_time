@@ -1,6 +1,7 @@
 import styles from "../styles/page/list.module.scss";
 import { useState } from "react";
 import { useTimeContext } from "../context/TimeContext";
+import { getNowTime } from "../utils";
 export default function List() {
   const {
     timer,
@@ -20,6 +21,21 @@ export default function List() {
     if (e.key === "Enter")
       if (inputText) {
         AddFn(inputText);
+        localStorage.setItem(
+          "tomato_time",
+          JSON.stringify([
+            ...timer,
+            {
+              id: Date.now(),
+              title: inputText,
+              workMin: 25,
+              workSec: 0,
+              breakMin: 5,
+              breakSec: 0,
+              createDate: getNowTime(),
+            },
+          ])
+        );
         setIntput("");
       }
   };

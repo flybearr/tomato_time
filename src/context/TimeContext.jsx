@@ -5,116 +5,77 @@ const TimeContext = createContext({});
 export default TimeContext;
 
 const allweekArray = getYearWeeks();
-
 console.log(getYearWeeks());
 // eslint-disable-next-line react/prop-types
 export const TimeContextProvider = function ({ children }) {
   const workRef = useRef(null);
+
   const breakRef = useRef(null);
+  const originalTime = localStorage.getItem("tomato_time_timer");
+  const originalDoneList = localStorage.getItem("tomato_time_doneList");
   const initTime = [
     {
       id: 1,
-      title: "AAAA",
-      workMin: 0,
-      workSec: 3,
-      breakMin: 0,
-      breakSec: 3,
+      title: "番茄鐘 - 時鐘",
+      workMin: 25,
+      workSec: 0,
+      breakMin: 5,
+      breakSec: 0,
       createDate: "2023/10/17",
     },
     {
       id: 2,
-      title: "BBBB",
+      title: "番茄鐘 - 列表",
       workMin: 25,
       workSec: 0,
       breakMin: 5,
       breakSec: 0,
-      createDate: "2023/10/12",
+      createDate: "2023/10/17",
     },
     {
       id: 3,
-      title: "CCCC",
+      title: "番茄鐘 - 鈴聲",
       workMin: 25,
       workSec: 0,
       breakMin: 5,
-      breakSec: 0,
-      createDate: "2023/10/17",
-    },
-    {
-      id: 4,
-      title: "DDDD",
-      workMin: 25,
-      workSec: 0,
-      breakMin: 5,
-      breakSec: 0,
-      createDate: "2023/10/14",
-    },
-    {
-      id: 5,
-      title: "EEEE",
-      workMin: 25,
-      workSec: 0,
-      breakMin: 5,
-      breakSec: 0,
-      createDate: "2023/10/17",
-    },
-  ];
-  const [timer, setTimer] = useState(initTime);
-  const [doneList, setDoneList] = useState([
-    {
-      id: 6,
-      title: "AAACCCC",
-      workMin: 0,
-      workSec: 0,
-      breakMin: 0,
       breakSec: 0,
       createDate: "2023/10/18",
     },
     {
-      id: 11,
-      title: "AAACCCC",
-      workMin: 0,
+      id: 4,
+      title: "番茄鐘 - 分析",
+      workMin: 25,
       workSec: 0,
-      breakMin: 0,
-      breakSec: 0,
-      createDate: "2023/10/17",
-    },
-    {
-      id: 12,
-      title: "AAACCCC",
-      workMin: 0,
-      workSec: 0,
-      breakMin: 0,
-      breakSec: 0,
-      createDate: "2023/10/16",
-    },
-    {
-      id: 15,
-      title: "AAACCCC",
-      workMin: 0,
-      workSec: 0,
-      breakMin: 0,
-      breakSec: 0,
-      createDate: "2023/10/16",
-    },
-    {
-      id: 19,
-      title: "AAACCCC",
-      workMin: 0,
-      workSec: 0,
-      breakMin: 0,
-      breakSec: 0,
-      createDate: "2023/10/16",
-    },
-    {
-      id: 22,
-      title: "AAACCCC",
-      workMin: 0,
-      workSec: 0,
-      breakMin: 0,
+      breakMin: 5,
       breakSec: 0,
       createDate: "2023/10/20",
     },
-  ]);
+    {
+      id: 5,
+      title: "番茄function",
+      workMin: 25,
+      workSec: 0,
+      breakMin: 5,
+      breakSec: 0,
+      createDate: "2023/10/20",
+    },
+  ];
+  const [timer, setTimer] = useState(originalTime ? originalTime : initTime);
+  const [doneList, setDoneList] = useState(
+    originalDoneList
+      ? [
+          {
+            id: 6,
+            title: "番茄-圖表",
+            workMin: 25,
+            workSec: 0,
+            breakMin: 5,
+            breakSec: 0,
+            createDate: "2023/10/20",
+          },
+        ]
+      : originalDoneList
+  );
   const [selectCounter, setSelectCounter] = useState(1);
   const [startCount, setStartCount] = useState({
     workTimer: false,
@@ -130,9 +91,9 @@ export const TimeContextProvider = function ({ children }) {
   ];
   const [selectWorkRing, setSelectWorkRing] = useState("Ring1");
   const [selectBreakRing, setSelectBreakRing] = useState("Ring4");
-  const workRingSrc = ringArray.find((v) => v.name === selectWorkRing).src;
+  const workRingSrc = ringArray?.find((v) => v.name === selectWorkRing).src;
   const breakRingSrc = ringArray2.find((v) => v.name === selectBreakRing).src;
-  const finder = timer.find((v) => v.id === selectCounter);
+  const finder = timer?.find((v) => v.id === selectCounter);
   const isWorkTime = finder?.workMin || finder?.workSec;
   const displayTime_Min = isWorkTime ? finder?.workMin : finder?.breakMin || 0;
   const displayTime_Sec = isWorkTime ? finder?.workSec : finder?.breakSec || 0;
@@ -273,6 +234,7 @@ export const TimeContextProvider = function ({ children }) {
         ) {
           const newDoneList = [...doneList, findTimer];
           setDoneList(newDoneList);
+          localStorage.setItem("tomato_time_doneList", newDoneList);
           setTimer(filterSelfTimer);
           setTimeout(() => {
             setSelectCounter(filterSelfTimer[0].id);
@@ -317,6 +279,8 @@ export const TimeContextProvider = function ({ children }) {
         displayTime_Sec,
         finder,
         allweekArray,
+        workRef,
+        breakRef,
       }}
     >
       <audio src={workRingSrc} ref={workRef}></audio>

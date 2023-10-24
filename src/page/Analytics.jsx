@@ -11,7 +11,7 @@ export default function Analytics() {
 
   // const displayTitle =
   const [selectDate, setSelectDate] = useState(nowWeek);
-  const nowWeekDone = doneList.filter((list) => {
+  const nowWeekDone = doneList?.filter((list) => {
     const startArray = allweekArray[selectDate].start;
     const endArray = allweekArray[selectDate].end;
     return startArray < list.createDate && list.createDate < endArray;
@@ -26,7 +26,7 @@ export default function Analytics() {
 
   const countTingTimes = () => {
     const newObjTing = {};
-    for (let i = 0; i < nowWeekDone.length; i++) {
+    for (let i = 0; i < nowWeekDone?.length; i++) {
       const date = nowWeekDone[i].createDate;
       if (!newObjTing[date]) {
         newObjTing[date] = 1;
